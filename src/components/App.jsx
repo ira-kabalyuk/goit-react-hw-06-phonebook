@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import shortid from 'shortid';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from './Container';
@@ -75,11 +75,6 @@ const App = () => {
   }
 
   const visibleContacts = getVisisbleContacts();
-
-  useEffect(() => {
-    const stringyfiedContacts = JSON.stringify(contacts);   
-    localStorage.setItem('contacts', stringyfiedContacts);
-  }, [contacts]);
   
   return (
       <Container>
