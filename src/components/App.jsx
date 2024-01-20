@@ -10,8 +10,6 @@ import { addContact, removeContact, setFilter } from '../redux/contacts/contacts
 
 const App = () => {
 
-  // const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')) ?? []);
-  // const [filter, setFilter] = useState('');
 
   const dispatch = useDispatch();
 
@@ -31,36 +29,18 @@ const App = () => {
     {
       return alert(`${name} is already in phonebook`);
     }
-    //setContacts((prevState) => [...prevState, contact])
-    
-    // const action = {
-    //   type: 'contacts/addContact',
-    //   payload: contact,
-    // }
 
     const action = addContact(contact);
     dispatch(action);
   };
 
   const deleteContact = contactId => {
-    //setContacts((prevState) => prevState.filter(contact => contact.id !== contactId))
-
-    //  const action = {
-    //   type: 'contacts/removeContact',
-    //   payload: contactId,
-    //  }
     
     const action = removeContact(contactId)
     dispatch(action);
   }
 
   const changeFilter = event => {
-    //setFilter(event.currentTarget.value)
-
-    // const action = {
-    //   type: 'contacts/setFilter',
-    //   payload: event.currentTarget.value,
-    // }
 
     const action = setFilter(event.currentTarget.value);
     dispatch(action);

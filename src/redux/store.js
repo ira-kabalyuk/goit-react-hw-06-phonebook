@@ -1,7 +1,7 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import { contactsReducer } from "./contacts/contactsReducer";
-//для redux-persist
+
 import {
   persistStore,
   persistReducer,
@@ -14,7 +14,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-//конфіг для redux-persist
 const contactsConfig = {
   key: 'contacts',
   storage,
@@ -28,7 +27,6 @@ export const store = configureStore({
     contacts: persistReducer(contactsConfig, contactsReducer),
   },
 
-  //для redux-persist
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -37,5 +35,4 @@ export const store = configureStore({
     }),
 });
 
-//для redux-persist
 export const persistor = persistStore(store);
