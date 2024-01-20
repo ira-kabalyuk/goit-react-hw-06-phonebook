@@ -35,7 +35,7 @@ const ContactForm = ({onSubmit}) => {
             value={name}
             onChange={handleChange}
             type="text"
-            name="name"           
+            name="name"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
@@ -46,7 +46,7 @@ const ContactForm = ({onSubmit}) => {
             value={number}
             onChange={handleChange}
             type="tel"
-            name="number"            
+            name="number"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />

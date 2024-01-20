@@ -1,12 +1,10 @@
-import { useSelector } from 'react-redux';
 import styles from './ContactList.module.scss';
 
 const ContactList = ({ contacts, onDeleteContact }) => {
- // const name = useSelector((store) => store.sssName);
 
   return (
     <div>
-      {contacts.length > 0 ? (
+      {contacts.length >= 0 ? (
         <ul className={styles.list}>
           {contacts.map(({ id, name, number }) => (
             <li className={styles.item} key={id}>
