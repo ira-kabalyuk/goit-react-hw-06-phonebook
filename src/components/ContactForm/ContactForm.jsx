@@ -1,10 +1,35 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import shortid from 'shortid';
 import styles from './ContactForm.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/contacts/contactsReducer';
 
 
-const ContactForm = ({onSubmit}) => {
+const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const dispatch = useDispatch();
+
+  const contacts = useSelector((store) => store.contacts.contacts);
+
+    const createContact = (name, number) => {
+    const contact = {
+      id: shortid.generate(),
+      name,
+      number,
+    };
+
+    if (contacts?.find(
+        contact => contact.name.toLowerCase() === name.toLowerCase()
+    ))
+    {
+      return alert(`${name} is already in phonebook`);
+    }
+
+    const action = addContact(contact);
+    dispatch(action);
+  };
 
   const handleChange = event => {
     const { name, value } = event.currentTarget;
@@ -18,7 +43,7 @@ const ContactForm = ({onSubmit}) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit(name, number);
+    createContact(name, number);
     reset();
   }
   
