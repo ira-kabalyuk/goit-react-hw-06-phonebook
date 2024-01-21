@@ -13,11 +13,14 @@ import { setFilter } from '../../redux/contacts/contactsReducer';
     dispatch(action);
   }
 
-  return (
-    <label className={styles.label}>
-      Filter
-      <input type="text" value={filter} onChange={changeFilter} />
-    </label>
+    return (
+    <>
+      <h2>Contacts</h2>
+      <label className={styles.label}>
+        Filter
+        <input type="text" value={filter} onChange={changeFilter} />
+      </label>
+    </>
   );
 };
 

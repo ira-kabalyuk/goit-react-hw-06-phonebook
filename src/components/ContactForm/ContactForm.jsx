@@ -52,7 +52,9 @@ const ContactForm = () => {
     setNumber('');
   };
 
-    return (
+  return (
+    <>
+      <h1>Phonebook</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.label}>
           Name
@@ -78,7 +80,8 @@ const ContactForm = () => {
         </label>
         <button type="submit">add Contact</button>
       </form>
-    );
+    </>
+  );
 };
 
 
